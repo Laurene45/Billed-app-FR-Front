@@ -27,6 +27,7 @@ export default class {
     $('#modaleFile').modal('show')
   }
 
+  //obtenir Note de frais
   getBills = () => {
     if (this.store) {
       return this.store
@@ -34,7 +35,7 @@ export default class {
       .list()
       .then(snapshot => {
         const bills = snapshot
-          .map(doc => {
+          /*.map(doc => {
             try {
               return {
                 ...doc,
@@ -51,9 +52,19 @@ export default class {
                 status: formatStatus(doc.status)
               }
             }
+          })*/
+
+          // -- Dates NDF dans le format correct / décroissant sur l'application
+          bills.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date);
+         });
+          return bills.map((doc) => {
+            doc.date = formatDate(doc.date);
+            doc.status = formatStatus(doc.status);
+            return doc;
           })
-          console.log('length', bills.length)
-        return bills
+          //console.log(bills)
+          //console.log('length', bills.length)
       })
     }
   }

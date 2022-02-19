@@ -5,6 +5,8 @@ import LoadingPage from "./LoadingPage.js"
 import Actions from './Actions.js'
 
 const row = (bill) => {
+  // NDF avec un fileName ok ou null
+  console.log(bill);
   return (`
     <tr>
       <td>${bill.type}</td>
@@ -24,6 +26,18 @@ const rows = (data) => {
 }
 
 export default ({ data: bills, loading, error }) => {
+  // Code pour TestBills.js
+  // Ajout code pour corriger test des NDF par ordre décroissant  
+  // Utilisation de getTime() : renvoie la valeur numérique correspondant au temps pour la date renseignée, 
+  // d'après le temps universel 
+  // !== : inégalité stricte
+  if(bills !== undefined){
+    bills.sort(function(a, b) {
+      let date1 = new Date(a.date)
+      let date2 = new Date(b.date)
+      return date2.getTime()- date1.getTime();
+    });
+  }
   
   const modal = () => (`
     <div class="modal fade" id="modaleFile" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
