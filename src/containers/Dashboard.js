@@ -150,15 +150,15 @@ export default class {
 
     // l'application duplique *2 les clics (ouverture menu et ouverture NDF)
     // vu avec les 2 consoles et tests clics
-    bills.forEach(bill => {
+    /*bills.forEach(bill => {
       $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
-    })
+    })*/
 
     // correction du code pour avoir un seul clid et ouverture de la NDF
     // Il faut prendre en compte la NDF filtrée
-    /*filteredBills(bills, getStatus(this.index)).forEach(bill => {
+    filteredBills(bills, getStatus(this.index)).forEach(bill => {
       $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
-    })*/
+    })
 
     return bills
 
