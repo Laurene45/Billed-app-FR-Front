@@ -8,6 +8,7 @@ import { ROUTES } from "../constants/routes";
 import { fireEvent, screen } from "@testing-library/dom";
 
 describe("Given that I am a user on login page", () => {
+  // Quand je ne remplis pas les champs et que je clique sur le bouton Employé Se connecter
   describe("When I do not fill fields and I click on employee button Login In", () => {
     test("Then It should renders Login page", () => {
       document.body.innerHTML = LoginUI();
@@ -27,6 +28,7 @@ describe("Given that I am a user on login page", () => {
     });
   });
 
+  // Lorsque je remplis des champs dans un format incorrect et que je clique sur le bouton de l'employé
   describe("When I do fill fields in incorrect format and I click on employee button Login In", () => {
     test("Then It should renders Login page", () => {
       document.body.innerHTML = LoginUI();
@@ -48,6 +50,7 @@ describe("Given that I am a user on login page", () => {
     });
   });
 
+  // Lorsque je remplis les champs dans le bon format et que je clique sur le bouton de l'employé
   describe("When I do fill fields in correct format and I click on employee button Login In", () => {
     test("Then I should be identified as an Employee in app", () => {
       document.body.innerHTML = LoginUI();
@@ -118,6 +121,7 @@ describe("Given that I am a user on login page", () => {
 });
 
 describe("Given that I am a user on login page", () => {
+  // Quand je ne remplis pas les champs et que je clique sur le bouton admin Se connecter
   describe("When I do not fill fields and I click on admin button Login In", () => {
     test("Then It should renders Login page", () => {
       document.body.innerHTML = LoginUI();
@@ -137,6 +141,7 @@ describe("Given that I am a user on login page", () => {
     });
   });
 
+  // Lorsque je remplis des champs dans un format incorrect et que je clique sur le bouton d'administration Connexion
   describe("When I do fill fields in incorrect format and I click on admin button Login In", () => {
     test("Then it should renders Login page", () => {
       document.body.innerHTML = LoginUI();
@@ -158,6 +163,7 @@ describe("Given that I am a user on login page", () => {
     });
   });
 
+  // Lorsque je remplis les champs dans le bon format et que je clique sur le bouton admin Se connecter
   describe("When I do fill fields in correct format and I click on admin button Login In", () => {
     test("Then I should be identified as an HR admin in app", () => {
       document.body.innerHTML = LoginUI();
