@@ -63,7 +63,6 @@ export default class {
             doc.status = formatStatus(doc.status);
             return doc;
           })
-          //console.log(bills)
           //console.log('length', bills.length)
       })
     }

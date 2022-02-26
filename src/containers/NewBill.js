@@ -44,7 +44,7 @@ export default class NewBill {
         this.billId = key
         this.fileUrl = fileUrl
         this.fileName = fileName
-      }).catch(error => console.error(error))
+      })
     }
   }
   handleSubmit = e => {
