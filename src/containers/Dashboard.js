@@ -146,8 +146,8 @@ export default class {
       this.counter ++
     }
     // l'application duplique *2 les clics (ouverture menu et ouverture NDF)
-    // vu avec les 2 consoles et tests clics
-    // correction code pour 1 seul clic et ouverture de la NDF .Prendre en compte la NDF filtrée
+    // vu avec autres méthodes des 2 console.log et tests clics
+    // correction code pour 1 seul et Prendre en compte la NDF filtrée
     filteredBills(bills, getStatus(this.index)).forEach(bill => {
       $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
     })

@@ -17,6 +17,7 @@ export default class NewBill {
   }
   handleChangeFile = e => {
     e.preventDefault()
+    // ajout du code pour corriger le bug des extensions avec alerte
     let file = this.document.querySelector(`input[data-testid="file"]`).files[0]
     if (!file.name.match(/.(jpg|jpeg|png)$/i)){  // Regex
       alert('Format non pris en charge! Veuillez uploader un document au format jpg, jpeg ou png');

@@ -35,7 +35,7 @@ export default class {
       .list()
       .then(snapshot => {
         const bills = snapshot
-          // -- Dates NDF dans le format correct / décroissant sur l'application
+          // Dates NDF dans le format correct / décroissant sur l'application
           bills.sort((a, b) => {
             return new Date(b.date) - new Date(a.date);
           });

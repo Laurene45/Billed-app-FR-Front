@@ -5,8 +5,6 @@ import LoadingPage from "./LoadingPage.js"
 import Actions from './Actions.js'
 
 const row = (bill) => {
-  // NDF avec un fileName ok ou null
-  console.log(bill);
   return (`
     <tr>
       <td>${bill.type}</td>
@@ -26,11 +24,8 @@ const rows = (data) => {
 }
 
 export default ({ data: bills, loading, error }) => {
-  // Code pour TestBills.js
   // Ajout code pour corriger test des NDF par ordre décroissant  
-  // Utilisation de getTime() : renvoie la valeur numérique correspondant au temps pour la date renseignée, 
-  // d'après le temps universel 
-  // !== : inégalité stricte
+  // Utilisation de getTime() : renvoie la valeur numérique correspondant au temps pour la date renseignée, d'après le temps universel 
   if(bills !== undefined){
     bills.sort(function(a, b) {
       let date1 = new Date(a.date)
