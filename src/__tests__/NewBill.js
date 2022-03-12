@@ -17,9 +17,8 @@
 
 
 describe("Given I am connected as an employee", () => {
-  //quand je suis sur la page Nouvelle NDF
   describe("When I am on NewBill Page", () => {
-    // Modif ... par "icône de courrier dans la barre verticale doit être mise en surbrillance"
+    // Test : Modif ... par "icône de courrier dans la barre verticale doit être mise en surbrillance"
       test("Then mail icon in vertical layout should be highlighted", async() => {
         const html = NewBillUI()
         document.body.innerHTML = html
@@ -39,9 +38,9 @@ describe("Given I am connected as an employee", () => {
     })
   })
 
-  //quand je sélectionne une image dans un format ok
+
   describe("When I select an image in a correct format", () => {
-    // Ensuite, le fichier doit afficher le nom du fichier
+    // TEST : Ensuite, le fichier doit afficher le nom du fichier
       test("Then the input file should display the file name", () => {
         //on ajoute le HTML
         const html = NewBillUI();
@@ -55,7 +54,6 @@ describe("Given I am connected as an employee", () => {
         fireEvent.change(input, {
             target: {files: [new File(['image.png'], 'image.png', {type: 'image/png'})],}
         })
-        //matcher : toHaveBeenCalled : s'assurer qu'une fonction fictive a été appelée avec des arguments spécifiques.
         expect(handleChangeFile).toHaveBeenCalled()
         expect(input.files[0].name).toBe('image.png');
     })
@@ -98,7 +96,6 @@ describe("Given I am connected as an employee", () => {
 
     // --- TEST INTEGRATION POST METHOD
 describe('Given I am a user connected as Employee', () => {
-  // Quand j'envoie le formulaire complété
   describe("When I submit the form completed", () => {
     // TEST : La note de frais est créée
     test("Then the bill is created", async() => {
@@ -108,7 +105,7 @@ describe('Given I am a user connected as Employee', () => {
        localStorage.setItem("user", JSON.stringify({type: 'Employee', email: 'a@a'}))
        const newBill = new NewBill({document, onNavigate, store: mockStore, localStorage})
 
-       // initial test values 
+       // Valeurs initiales pour test
        const validBill = {
           type: 'Hôtel et logement',
           name: 'Séjour pro',
@@ -121,7 +118,7 @@ describe('Given I am a user connected as Employee', () => {
           fileName: 'test.jpg',
           status: 'pending',
        }
-       // load the values
+       // chargement des valeurs
        screen.getByTestId("expense-type").value = validBill.type;
        screen.getByTestId("expense-name").value = validBill.name;
        screen.getByTestId("amount").value = validBill.amount;
@@ -152,17 +149,34 @@ describe('Given I am a user connected as Employee', () => {
 
       expect(spyPost).toHaveBeenCalledTimes(1);
       expect(response.key).toBe("1234");
-    });
+    })
 
     // TEST : Update
     test('POST INTEGRATION "update"', async () => {
       const mockedApiFn = mockStore.bills();
       const spyPostUpdate = jest.spyOn(mockedApiFn, "update");
       const response = await mockedApiFn.update();
+      
+      const updateBills = {
+        id: "47qAXb6fIm2zOKkLzMro",
+        vat: "80",
+        fileUrl: "https://firebasestorage.googleapis.com/v0/b/billable-677b6.a…f-1.jpg?alt=media&token=c1640e12-a24b-4b11-ae52-529112e9602a",
+        status: "pending",
+        type: "Hôtel et logement",
+        commentary: "séminaire billed",
+        name: "encore",
+        fileName: "preview-facture-free-201801-pdf-1.jpg",
+        date: "2004-04-04",
+        amount: 400,
+        commentAdmin: "ok",
+        email: "a@a",
+        pct: 20
+      }
 
       expect(spyPostUpdate).toHaveBeenCalledTimes(1);
       expect(response).toBeTruthy();
-    });
+      expect(response).toEqual(updateBills);
+    })
   })
 
   
@@ -177,6 +191,7 @@ describe('Given I am a user connected as Employee', () => {
       document.body.appendChild(root)
       router()
     })
+
     // TEST : récupère les factures d'une API et échoue avec une erreur 404
     test("fetches bills from an API and fails with 404 message error", async () => {
       mockStore.bills.mockImplementationOnce(() => {
@@ -190,6 +205,7 @@ describe('Given I am a user connected as Employee', () => {
       const message = await screen.getByText(/Erreur 404/);
       expect(message).toBeTruthy();
     })
+    
     // TEST : récupère les factures d'une API et échoue avec une erreur 500
     test("fetches messages from an API and fails with 500 message error", async () => {
       mockStore.bills.mockImplementationOnce(() => {
