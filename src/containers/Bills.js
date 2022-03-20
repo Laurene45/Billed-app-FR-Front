@@ -44,7 +44,7 @@ export default class {
             doc.status = formatStatus(doc.status);
             return doc;
           })
-      })
+        })
+      }
     }
   }
-}
