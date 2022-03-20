@@ -22,7 +22,7 @@ describe("Given I am connected as an employee", () => {
       test("Then mail icon in vertical layout should be highlighted", async() => {
         const html = NewBillUI()
         document.body.innerHTML = html
-        //to-do write assertion
+        //--to-do write assertion
         Object.defineProperty(window, 'localStorage', { value: localStorageMock })
         window.localStorage.setItem('user', JSON.stringify({type: 'Employee'}))
         const root = document.createElement("div")
@@ -32,7 +32,7 @@ describe("Given I am connected as an employee", () => {
         window.onNavigate(ROUTES_PATH.NewBill)
         await waitFor(() => screen.getByTestId('icon-mail'))
         const windowIcon = screen.getByTestId('icon-mail')
-        //to-do write expect expression
+        //--to-do write expect expression
         const iconActivated = windowIcon.classList.contains('active-icon')
         expect(iconActivated).toBeTruthy()
     })

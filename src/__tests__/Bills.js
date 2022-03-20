@@ -32,7 +32,7 @@ describe("Given I am connected as an employee", () => {
       window.onNavigate(ROUTES_PATH.Bills)
       await waitFor(() => screen.getByTestId('icon-window'))
       const windowIcon = screen.getByTestId('icon-window')
-      //to-do write expect expression
+      //-- to-do write expect expression
       // Jest va tester si le résultat de expect() correspond au “matcher”.
       const iconActivated = windowIcon.classList.contains('active-icon')
       expect(iconActivated).toBeTruthy()
@@ -69,7 +69,7 @@ describe("Given I am connected as an employee", () => {
   })
 
   describe("When I click on button 'Nouvelle note de frais'", () => {
-    // TEST : Page nouvelle de Frais doit s'afficher
+    // TEST : Page nouvelle Note de Frais doit s'afficher
     test("Then I should be sent on the new bill page", () => {
       Object.defineProperty(window, 'localStorage', { value: localStorageMock })
         window.localStorage.setItem('user', JSON.stringify({type: 'Employee'}))
