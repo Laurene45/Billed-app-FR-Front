@@ -1,94 +1,98 @@
+﻿# BILLED-APP
 
-## L'architecture du projet :
-Ce projet, dit frontend, est connecté à un service API backend que vous devez aussi lancer en local.
+This project, called frontend, is connected to a backend API service that you must also launch locally.
 
-Le projet backend se trouve ici: https://github.com/OpenClassrooms-Student-Center/Billed-app-FR-back
+Backend Project: https://github.com/OpenClassrooms-Student-Center/Billed-app-FR-back
 
-## Organiser son espace de travail :
-Pour une bonne organization, vous pouvez créer un dossier bill-app dans lequel vous allez cloner le projet backend et par la suite, le projet frontend:
+![billed.JPG](https://github.com/Laurene45/Billed-app-FR-Front/blob/main/documentation/billed.JPG?raw=true)
 
-Clonez le projet backend dans le dossier bill-app :
+## Method of working:
+
+
+For good organization, you can create a bill-app folder in which you will clone the backend project and subsequently, the frontend project:
+
+- Clone the backend project into the bill-app folder:
 ```
 $ git clone https://github.com/OpenClassrooms-Student-Center/Billed-app-FR-Back.git
 ```
-
 ```
 bill-app/
    - Billed-app-FR-Back
 ```
 
-Clonez le projet frontend dans le dossier bill-app :
+Clone the frontend project into the bill-app folder:
 ```
 $ git clone https://github.com/OpenClassrooms-Student-Center/Billed-app-FR-Front.git
 ```
-
 ```
 bill-app/
    - Billed-app-FR-Back
    - Billed-app-FR-Front
 ```
 
-## Comment lancer l'application en local ?
+## How to launch the application locally?
 
-### étape 1 - Lancer le backend :
+### step 1 - Launch the backend:
 
-Suivez les indications dans le README du projet backend.
+Follow the instructions in the README of the backend project.
 
-### étape 2 - Lancer le frontend :
+### step 2 - Launch the frontend:
 
-Allez au repo cloné :
+Go to the cloned repo:
 ```
 $ cd Billed-app-FR-Front
 ```
 
-Installez les packages npm (décrits dans `package.json`) :
+Install the npm packages (described in `package.json`):
 ```
 $ npm install
 ```
 
-Installez live-server pour lancer un serveur local :
+Install live-server to launch a local server:
 ```
 $ npm install -g live-server
 ```
 
-Lancez l'application :
+Launch application :
 ```
 $ live-server
 ```
 
-Puis allez à l'adresse : `http://127.0.0.1:8080/`
+Then go to the address: `http://127.0.0.1:8080/`
 
 
-## Comment lancer tous les tests en local avec Jest ?
+## How to run all tests locally with Jest?
 
 ```
 $ npm run test
 ```
 
-## Comment lancer un seul test ?
+## How to run a single test?
 
-Installez jest-cli :
+Install jest-cli :
 
 ```
 $npm i -g jest-cli
 $jest src/__tests__/your_test_file.js
 ```
 
-## Comment voir la couverture de test ?
+## How to view test coverage?
 
 `http://127.0.0.1:8080/coverage/lcov-report/`
 
-## Comptes et utilisateurs :
+## Accounts and users :
 
 Vous pouvez vous connecter en utilisant les comptes:
 
-### administrateur : 
+### administrator : 
 ```
 utilisateur : admin@test.tld 
 mot de passe : admin
 ```
-### employé :
+### employee:
 ```
 utilisateur : employee@test.tld
 mot de passe : employee
 ```
+
+
